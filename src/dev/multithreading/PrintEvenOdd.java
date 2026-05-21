@@ -43,8 +43,8 @@ public class PrintEvenOdd {
     public static void main(String[] args) {
         PrintEvenOdd printEvenOdd = new PrintEvenOdd();
 
-        Thread oddThread = new Thread(printEvenOdd::printOdd);
-        Thread evenThread = new Thread(printEvenOdd::printEven);
+        Thread oddThread = new Thread(()-> printEvenOdd.printOdd());
+        Thread evenThread = new Thread(()-> printEvenOdd.printEven());
 
         oddThread.start();
         evenThread.start();

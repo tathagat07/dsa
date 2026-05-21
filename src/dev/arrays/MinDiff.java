@@ -39,12 +39,13 @@ public class MinDiff {
     }
 
     public int subarraySum(int[] nums, int k) {
+
        HashMap<Integer, Integer> map = new HashMap<>();
        map.put(0,1);
        int ans = 0;
        int sum = 0;
 
-       for(int i=0; i< nums.length; i++){
+       for (int i=0; i< nums.length; i++){
            sum += nums[i];
 
            if(map.containsKey(sum - k)){
@@ -56,13 +57,11 @@ public class MinDiff {
            } else {
                map.put(sum,1);
            }
-
        }
        return ans;
-
     }
 
-    public static int maxAreaBrute(int[] height){
+    public static int maxAreaBrute(int[] height) {
      int maxArea = 0;
      int currentArea = 0;
      int n = height.length;
@@ -93,9 +92,7 @@ public class MinDiff {
             } else {
                 left++;
             }
-
         }
-
         return maxArea;
 
     }
@@ -104,7 +101,7 @@ public class MinDiff {
         int maxProfit = 0 ;
         int bestBuy = prices[0];
 
-        for(int i = 0; i< prices.length; i++){
+        for (int i = 0; i< prices.length; i++){
             if(prices[i] > bestBuy){
                 maxProfit = Math.max(maxProfit, prices[i] - bestBuy);
             }
@@ -157,6 +154,7 @@ public class MinDiff {
     }
 
     public int majorityElement(int[] nums) {
+
         HashMap<Integer,Integer> hashmap = new HashMap<>();
         int n = nums.length;
         int ans = 0;

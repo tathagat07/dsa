@@ -12,7 +12,6 @@ public class BST {
             this.data = data;
         }
 
-
     }
 
     public static Node insert(Node root, int val) {
@@ -165,9 +164,9 @@ public class BST {
         }
         inorder(root);
         System.out.println();
-        System.out.println(minDiffInBST(root));
+      //  System.out.println(minDiffInBST(root));
         //   delete(root,5);
-        //    printInRange(root,3,12);
+            printInRange(root,3,12);
         //   inorder(root);
     //    printRoot2Leaf(root, new ArrayList<>());
         //   System.out.println(search(root, 12));

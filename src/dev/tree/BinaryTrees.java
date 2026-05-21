@@ -3,7 +3,10 @@ package dev.tree;
 import java.util.*;
 
 public class BinaryTrees {
+
+
     static class Node {
+
         int data;
         Node left;
         Node right;
@@ -39,9 +42,9 @@ public class BinaryTrees {
             static int index = -1;
 
             public static Node buildTree(int nodes[]) {
-
                 index++;
-                if (nodes[index] == -1) {
+
+                if (index >= nodes.length || nodes[index] == -1) {
                     return null;
                 }
 
@@ -240,27 +243,27 @@ public class BinaryTrees {
                 Map<Integer, Integer> bottomViewMap = new TreeMap<>();
 
                 Queue<QueueEntry> q = new LinkedList<>();
-                q.add(new QueueEntry(root,0));
+                q.add(new QueueEntry(root, 0));
 
                 while (!q.isEmpty()) {
                     QueueEntry currEntry = q.poll();
                     Node currNode = currEntry.node;
                     int currentHd = currEntry.hd;
 
-                    bottomViewMap.put(currentHd,currNode.data);
+                    bottomViewMap.put(currentHd, currNode.data);
 
-                    if(currNode.left != null){
-                        q.add(new QueueEntry(currNode.left,currentHd - 1));
+                    if (currNode.left != null) {
+                        q.add(new QueueEntry(currNode.left, currentHd - 1));
                     }
 
-                    if(currNode.right != null){
-                        q.add(new QueueEntry(currNode.right,currentHd + 1));
+                    if (currNode.right != null) {
+                        q.add(new QueueEntry(currNode.right, currentHd + 1));
                     }
 
 
                 }
 
-                for (int value: bottomViewMap.values()) {
+                for (int value : bottomViewMap.values()) {
                     ans.add(value);
                 }
                 return ans;
@@ -277,32 +280,32 @@ public class BinaryTrees {
                 Map<Integer, Integer> bottomViewMap = new TreeMap<>();
 
                 Queue<QueueEntry> q = new LinkedList<>();
-                q.add(new QueueEntry(root,0));
+                q.add(new QueueEntry(root, 0));
 
                 while (!q.isEmpty()) {
                     QueueEntry currEntry = q.poll();
                     Node currNode = currEntry.node;
                     int currentHd = currEntry.hd;
 
-                    if(bottomViewMap.containsKey(currentHd)){
-                        bottomViewMap.put(currentHd,currNode.data);
+                    if (bottomViewMap.containsKey(currentHd)) {
+                        bottomViewMap.put(currentHd, currNode.data);
                     } else {
-                        bottomViewMap.put(currentHd,currNode.data);
+                        bottomViewMap.put(currentHd, currNode.data);
                     }
 
 
-                    if(currNode.left != null){
-                        q.add(new QueueEntry(currNode.left,currentHd - 1));
+                    if (currNode.left != null) {
+                        q.add(new QueueEntry(currNode.left, currentHd - 1));
                     }
 
-                    if(currNode.right != null){
-                        q.add(new QueueEntry(currNode.right,currentHd + 1));
+                    if (currNode.right != null) {
+                        q.add(new QueueEntry(currNode.right, currentHd + 1));
                     }
 
 
                 }
 
-                for (int value: bottomViewMap.values()) {
+                for (int value : bottomViewMap.values()) {
                     ans.add(value);
                 }
                 return ans;
@@ -314,16 +317,16 @@ public class BinaryTrees {
 
     public static void main(String[] args) {
 
-       // int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        // int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
         int nodes[] = {1, 2, 3, 4, 5, -1, 6};
-     //   int subNodes[] = {2, 4, -1, -1, 5, -1, -1};
+        //   int subNodes[] = {2, 4, -1, -1, 5, -1, -1};
         Node.BinaryTree tree = new Node.BinaryTree();
         Node.BinaryTree.index = -1;
         Node root = tree.buildTree(nodes);
 
         tree.levelOrder(root);
- //       System.out.println();
- //       System.out.println("=====================================================");
+        //       System.out.println();
+        //       System.out.println("=====================================================");
 
 //        Node.BinaryTree.index = -1;
 //        Node subRoot = tree.buildTree(subNodes);
@@ -333,7 +336,7 @@ public class BinaryTrees {
 
 //       System.out.println(tree.diameter(root));
         //     System.out.println(tree.diameter(subRoot));
-  //      System.out.println(isSubRoot);
+        //      System.out.println(isSubRoot);
 //        System.out.println(tree.diameter2(root).dia);
 
     }
