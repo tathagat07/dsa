@@ -5,7 +5,7 @@ public class PrintEvenOdd {
     private final int max = 50; // Maximum number to print
 
     public synchronized void printOdd() {
-        while (number <= max) {
+        while (number < max) {
             while (number % 2 == 0) { // Wait if the number is even
                 try {
                     wait();
@@ -13,7 +13,7 @@ public class PrintEvenOdd {
                     e.printStackTrace();
                 }
             }
-            if (number > max) {
+            while (number > max) {
                 notifyAll();
                 break;
             }
@@ -23,7 +23,7 @@ public class PrintEvenOdd {
     }
 
     public synchronized void printEven() {
-        while (number <= max) {
+        while (number < max) {
             while (number % 2 != 0) { // Wait if the number is odd
                 try {
                     wait();
@@ -31,7 +31,7 @@ public class PrintEvenOdd {
                     e.printStackTrace();
                 }
             }
-            if (number > max) {
+            while (number > max) {
                 notifyAll();
                 break;
             }

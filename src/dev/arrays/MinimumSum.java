@@ -30,7 +30,7 @@ public class MinimumSum {
 
     public static void main(String[] args) {
         int[] nums = {10, 20, 7};
-        int k = 2;
+        int k = 4;
         int result = minimumSum(nums, k);
         System.out.println("Minimum Sum after " + k + " operations: " + result);
     }
