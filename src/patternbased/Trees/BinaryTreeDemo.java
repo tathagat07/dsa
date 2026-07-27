@@ -38,7 +38,7 @@ public class BinaryTreeDemo {
         System.out.print(root.val + " ");
         inOrder(root.right);
     }
-   private static int diameter = 0;
+    private static int diameter = 0;
     public static void postOrder(TreeNode root){
         if(root == null){
             return;
@@ -62,7 +62,9 @@ public class BinaryTreeDemo {
 
        int left =  heightOfTree(root.left);
        int right =  heightOfTree(root.right);
+        // Update diameter
        diameter = Math.max(diameter,left + right);
+        // Return height
         return 1 + Math.max(left,right);
     }
 

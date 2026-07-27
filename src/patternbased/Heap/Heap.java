@@ -78,4 +78,53 @@ public class Heap {
     private int distance(int[] point){
         return point[0] * point[0] + point[1] * point[1];
     }
+
+   public int findKthLargestRev(int[] nums, int k){
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        for(int num : nums){
+            if(minHeap.size() < k){
+                minHeap.offer(num);
+            }
+
+            if(num > minHeap.peek()){
+                minHeap.poll();
+                minHeap.offer(num);
+            }
+
+        }
+        return minHeap.peek();
+   }
+
+    public int[] topKFrequentRev(int[] nums, int k){
+        Map<Integer,Integer> freq = new HashMap<>();
+
+        for(int num : nums){
+            freq.put(num,freq.getOrDefault(num,0)+1);
+        }
+
+        // Step 2: Min Heap based on frequency
+        PriorityQueue<Map.Entry<Integer,Integer>> minHeap = new PriorityQueue<>(
+                (a,b) -> a.getValue() - b.getValue()
+        );
+
+        // Step 3: Keep only top K frequent elements
+
+        for(Map.Entry<Integer,Integer> entry : freq.entrySet()){
+            if(minHeap.size() < k){
+                minHeap.offer(entry);
+            } else if(entry.getValue() > minHeap.peek().getValue()) {
+                minHeap.poll();
+                minHeap.offer(entry);
+            }
+        }
+
+        int[] result = new int[k];
+        int index = 0;
+
+        while (!minHeap.isEmpty()){
+            result[index++] = minHeap.poll().getKey();
+        }
+        return result;
+    }
 }
