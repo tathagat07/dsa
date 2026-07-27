@@ -45,6 +45,29 @@ public class LinkedListTutorial {
         return head;
     }
 
+    public ListNode reverseListRevision(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode prevNode = head;
+        ListNode currenNode = head.next;
+
+        while (currenNode != null){
+            ListNode nextNode = head.next.next;
+            currenNode.next = prevNode;
+
+            prevNode = currenNode;
+            currenNode = nextNode;
+        }
+
+        head.next = null;
+        head = prevNode;
+
+        return head;
+
+    }
+
     public ListNode middleNode(ListNode head) {
         if(head == null || head.next == null){
             return head;
@@ -58,6 +81,23 @@ public class LinkedListTutorial {
         }
         ListNode middle = slow;
         return  middle;
+    }
+
+    public ListNode middleNodeRevision(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode middle = slow;
+        return middle;
     }
 
     public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
@@ -80,7 +120,7 @@ public class LinkedListTutorial {
        if(head == null || head.next == null){
            return true;
        }
-       ListNode curr  = head;
+        ListNode curr  = head;
         Stack<Integer> stack = new Stack<>();
         while(curr != null){
             stack.push(head.val);
@@ -112,6 +152,27 @@ public class LinkedListTutorial {
             fast = fast.next.next;
         }
      return false;
+    }
+
+    public boolean hasCycleRevision(ListNode head){
+        if(head == null || head.next == null){
+            return false;
+        }
+
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
+
+        while(slow != null && fast != null){
+            if(fast.val == slow.val){
+                return true;
+            }
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+        }
+
+        return false;
     }
 
     public ListNode detectCycle(ListNode head) {

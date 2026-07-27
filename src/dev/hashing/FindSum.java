@@ -22,6 +22,21 @@ public class FindSum {
         return maxSum;
     }
 
+    public int maxSubArrayRevision(int[] nums){
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = 0;
+
+        for(int num : nums){
+            currSum+= num;
+            maxSum = Math.max(maxSum, currSum);
+            if(maxSum < 0){
+                maxSum = 0;
+            }
+        }
+
+        return maxSum;
+    }
+
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>(new ArrayList<>());
 
@@ -60,6 +75,45 @@ public class FindSum {
         return ans;
     }
 
+    public List<List<Integer>> threeSumRevesion(int[] nums){
+        List<List<Integer>> ans = new ArrayList<>(new ArrayList<>());
+
+        int n = nums.length;
+
+        Arrays.sort(nums);
+
+        for(int i = 0; i< n ; i++){
+            if(i > 0 && nums[i] == nums[i -1]){
+                continue;
+            }
+
+            int j = i + 1;
+            int k = n - 1;
+
+            while (j < k){
+                int sum = nums[i] + nums[j] + nums[k];
+                if(sum < 0){
+                    j ++;
+                } else if(sum > 0){
+                    k --;
+                } else {
+                    List<Integer> ans1 = new ArrayList<>();
+                    ans1.add(nums[i]);
+                    ans1.add(nums[j]);
+                    ans1.add(nums[k]);
+                    ans.add(ans1);
+                }
+                if(j < k && nums[j] == nums[j-1]){
+                    j++;
+                }
+            }
+
+        }
+
+        return ans;
+
+    }
+
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> ans = new ArrayList<>(new ArrayList<>());
 
@@ -70,7 +124,7 @@ public class FindSum {
                 continue;
             }
 
-            for (int j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < n; ) {
 
                 int p = j + 1;
                 int q = n - 1;

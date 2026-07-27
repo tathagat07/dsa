@@ -60,6 +60,19 @@ public class ReverseList {
         System.out.print("NULL");
     }
 
+    public Node reverseList() {
+        Node prev = null;
+        Node curr = head;
+
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        return prev;
+    }
 
     public void reverseLinkedList(){
 

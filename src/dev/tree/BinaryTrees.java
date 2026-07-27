@@ -293,7 +293,6 @@ public class BinaryTrees {
                         bottomViewMap.put(currentHd, currNode.data);
                     }
 
-
                     if (currNode.left != null) {
                         q.add(new QueueEntry(currNode.left, currentHd - 1));
                     }
@@ -301,7 +300,6 @@ public class BinaryTrees {
                     if (currNode.right != null) {
                         q.add(new QueueEntry(currNode.right, currentHd + 1));
                     }
-
 
                 }
 

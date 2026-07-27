@@ -17,7 +17,7 @@ public class DBConnection {
     public static DBConnection getInstance() {
         return instance;
     }
-// lazy initialiazation
+    // lazy initialiazation
     public static DBConnection getInstance2() {
         if (instance == null) {
             instance = new DBConnection();
