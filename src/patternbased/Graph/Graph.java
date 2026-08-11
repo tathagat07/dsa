@@ -216,7 +216,8 @@ public class Graph {
                 {'0', '0', '0', '1', '1'}
         };
         System.out.println("Island Grid ('1'=land, '0'=water):");
-        for (char[] row : islandGrid) System.out.println(Arrays.toString(row));
+        for (char[] row : islandGrid)
+            System.out.println(Arrays.toString(row));
 
         int totalIslands = graph.numIslands(islandGrid);
         System.out.println("Total Islands found: " + totalIslands);

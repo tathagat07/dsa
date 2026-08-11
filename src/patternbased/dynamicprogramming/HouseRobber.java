@@ -2,7 +2,7 @@ package patternbased.dynamicprogramming;
 
 import java.util.Arrays;
 
-public class HouseRober {
+public class HouseRobber {
     private int robRecursion(int[] nums, int i){
 
         if(i >= nums.length)
@@ -104,7 +104,7 @@ public class HouseRober {
     }
 
     public static void main(String[] args) {
-        HouseRober solver = new HouseRober();
+        HouseRobber solver = new HouseRobber();
 
         int[] test1 = {1, 2, 3, 1};
         int[] test2 = {2, 7, 9, 3, 1};

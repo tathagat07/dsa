@@ -21,6 +21,7 @@ public class PacificAtlanticWaterFlow {
         boolean[][] atlantic = new boolean[rows][cols];
 
         // Pacific
+        //Left column
         for(int c=0; c < cols; c++){
             dfs(0,c,heights,pacific);
         }

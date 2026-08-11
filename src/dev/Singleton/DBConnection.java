@@ -17,7 +17,7 @@ public class DBConnection {
     public static DBConnection getInstance() {
         return instance;
     }
-    // lazy initialiazation
+    // lazy initialization
     public static DBConnection getInstance2() {
         if (instance == null) {
             instance = new DBConnection();
@@ -45,4 +45,7 @@ public class DBConnection {
         return conObject2;
     }
 
+    public static void main(String[] args) {
+        DBConnection connection = DBConnection.getInstance();
+    }
 }

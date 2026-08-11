@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Permutation2 {
+
     public List<List<Integer>> permute(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> ans = new ArrayList<>();
